@@ -1,1 +1,0 @@
-/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/Task2Tests.dir/tests/tests.cpp.o CMakeFiles/Task2Tests.dir/src/Graph.cpp.o -o Task2Tests  lib/libgtest_main.a lib/libgtest.a
