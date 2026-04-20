@@ -1,0 +1,33 @@
+Start testing: Apr 19 00:24 CEST
+----------------------------------------------------------
+1/1 Testing: Task3Tests
+1/1 Test: Task3Tests
+Command: "/Users/konradkurzak/DIRS/novomatic/task3/build/Task3Tests"
+Directory: /Users/konradkurzak/DIRS/novomatic/task3/build
+"Task3Tests" start time: Apr 19 00:24 CEST
+Output:
+----------------------------------------------------------
+Running main() from /Users/konradkurzak/DIRS/novomatic/task3/build/_deps/googletest-src/googletest/src/gtest_main.cc
+[==========] Running 3 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 3 tests from QueryTest
+[ RUN      ] QueryTest.FilterBySource
+[       OK ] QueryTest.FilterBySource (0 ms)
+[ RUN      ] QueryTest.FilterByLogLevelAndTimestamp
+[       OK ] QueryTest.FilterByLogLevelAndTimestamp (0 ms)
+[ RUN      ] QueryTest.FilterByMessage
+[       OK ] QueryTest.FilterByMessage (0 ms)
+[----------] 3 tests from QueryTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 3 tests from 1 test suite ran. (0 ms total)
+[  PASSED  ] 3 tests.
+<end of output>
+Test time =   0.33 sec
+----------------------------------------------------------
+Test Passed.
+"Task3Tests" end time: Apr 19 00:24 CEST
+"Task3Tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Apr 19 00:24 CEST

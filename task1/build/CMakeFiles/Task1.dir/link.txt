@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/Task1.dir/src/main.cpp.o CMakeFiles/Task1.dir/client/Client.cpp.o CMakeFiles/Task1.dir/client/CoinMachine.cpp.o CMakeFiles/Task1.dir/server/Server.cpp.o -o Task1
