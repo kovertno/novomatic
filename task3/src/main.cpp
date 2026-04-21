@@ -4,8 +4,9 @@
 #include <iostream>
 #include <vector>
 
-int main() {
-  std::vector<Message> messages = utils::ReadFile("../logs.txt");
+int main(int argc, char *argv[]) {
+  std::string filePath = argc > 1 ? argv[1] : "../logs.txt";
+  std::vector<Message> messages = utils::ReadFile(filePath);
 
   std::cout << "Welcome to Task3\n";
   std::cout << "To exit the application type \" exit \"\n";
