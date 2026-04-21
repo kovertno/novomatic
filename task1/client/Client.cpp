@@ -6,7 +6,7 @@ void Client::Run() {
 
   auto available = server.GetAvailable();
   if (available.empty()) {
-    std::cout << "[Client " << clientID << "] No tickets available\n";
+    std::cerr << "[Client " << clientID << "] No tickets available\n";
     return;
   }
 
@@ -16,7 +16,7 @@ void Client::Run() {
             << " (" << chosen.price << " zl)\n";
 
   if (!server.Reserve(chosen.id, username)) {
-    std::cout << "[Client " << clientID << "] Reservation failed\n";
+    std::cerr << "[Client " << clientID << "] Reservation failed\n";
     return;
   }
   std::cout << "[Client " << clientID << "] Reserved ticket " << chosen.id
@@ -30,7 +30,7 @@ void Client::Run() {
 
   // confirm or cancel
   if (!change.has_value()) {
-    std::cout << "[Client " << clientID
+    std::cerr << "[Client " << clientID
               << "] Cannot make change - cancelling\n";
     server.Cancel(chosen.id, username);
     return;

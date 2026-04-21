@@ -17,13 +17,13 @@ void Render::Init() {
 #endif
 
   glfwSetErrorCallback([](int error, const char *desc) {
-    std::cout << "GLFW Error" << error << ": " << desc << std::endl;
+    std::cerr << "GLFW Error" << error << ": " << desc << std::endl;
   });
 
   window = glfwCreateWindow(constants::WINDOW_WIDTH, constants::WINDOW_HEIGHT,
                             "Task2", NULL, NULL);
   if (!window) {
-    std::cout << "Failed to create GLFW window" << std::endl;
+    std::cerr << "Failed to create GLFW window" << std::endl;
     glfwTerminate();
     return;
   }

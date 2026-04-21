@@ -34,7 +34,7 @@ void Graph::LoadGraphFromFile(const std::string &filePath) {
       adjacency[from].push_back(to);
     }
   } else {
-    std::cout << "ERROR::FILE_NOT_READ_SUCCESFULLY\n";
+    std::cerr << "ERROR::FILE_NOT_READ_SUCCESFULLY\n";
   }
 }
 

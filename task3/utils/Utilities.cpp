@@ -39,7 +39,7 @@ std::vector<Message> utils::ReadFile(const std::string &filePath) {
       out.push_back(utils::ParseLine(line));
     }
   } else {
-    std::cout << "ERROR::FILE_NOT_READ_SUCCESSFULLY\n";
+    std::cerr << "ERROR::FILE_NOT_READ_SUCCESSFULLY\n";
   }
 
   return out;
