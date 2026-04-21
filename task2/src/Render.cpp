@@ -76,13 +76,18 @@ void Render::Draw() {
     // draw nodes
     for (const auto &node : graph->GetNodes()) {
       ImVec2 topLeft(node.x, node.y);
-      ImVec2 bottomRight(node.x + constants::NODE_WIDTH,
+      uint16_t additionalWidth = 5;
+      ImVec2 textParams = ImGui::CalcTextSize(node.name.c_str());
+
+      ImVec2 bottomRight(node.x + textParams.x + 2 * additionalWidth,
                          node.y + constants::NODE_HEIGHT);
       drawList->AddRectFilled(topLeft, bottomRight,
                               IM_COL32(70, 130, 180, 255));
       drawList->AddRect(topLeft, bottomRight, IM_COL32(255, 255, 255, 255));
-      drawList->AddText(ImVec2(node.x + 5, node.y + 5),
-                        IM_COL32(255, 255, 255, 255), node.name.c_str());
+      drawList->AddText(
+          ImVec2(node.x + additionalWidth,
+                 node.y + constants::NODE_HEIGHT / 2 - textParams.y / 2),
+          IM_COL32(255, 255, 255, 255), node.name.c_str());
     }
 
     ImGui::Render();

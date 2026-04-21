@@ -71,10 +71,18 @@ void Graph::ComputeLayout() {
 
   std::unordered_map<int, int> depthCount;
   for (auto &node : nodes) {
+    ++depthCount[depthMap[node.id]];
+  }
+
+  std::unordered_map<int, int> depthIndex;
+  for (auto &node : nodes) {
     int depth = depthMap[node.id];
+    int total = depthCount[depth];
+    int index = depthIndex[depth];
     node.x = constants::X_OFFSET + depth * constants::X_SPACING;
-    node.y = constants::Y_OFFSET + depthCount[depth] * constants::Y_SPACING;
-    ++depthCount[depth];
+    node.y = (constants::Y_OFFSET) - (total * constants::Y_SPACING / 2) +
+             index * constants::Y_SPACING;
+    ++depthIndex[depth];
   }
 }
 

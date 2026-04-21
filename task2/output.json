@@ -18,25 +18,25 @@
             "id": 1,
             "name": "Event BeginPlay",
             "x": 100,
-            "y": 100
+            "y": 360
         },
         {
             "id": 2,
             "name": "Branch",
             "x": 300,
-            "y": 100
+            "y": 360
         },
         {
             "id": 3,
             "name": "Play Sound (True)",
             "x": 500,
-            "y": 100
+            "y": 260
         },
         {
             "id": 4,
             "name": "Spawn Actor (False)",
             "x": 500,
-            "y": 300
+            "y": 460
         }
     ]
 }

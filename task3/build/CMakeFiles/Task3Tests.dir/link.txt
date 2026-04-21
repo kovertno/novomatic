@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/Task3Tests.dir/tests/tests.cpp.o CMakeFiles/Task3Tests.dir/utils/Utilities.cpp.o -o Task3Tests  lib/libgtest_main.a lib/libgtest.a
