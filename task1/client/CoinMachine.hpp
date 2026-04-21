@@ -6,14 +6,14 @@
 
 class CoinMachine {
 private:
-  std::map<float, int, std::greater<float>> coins{};
+  std::map<int, int, std::greater<int>> coins{};
 
 public:
   CoinMachine();
   ~CoinMachine() = default;
 
-  std::optional<std::map<float, int, std::greater<float>>>
-  CalculateChange(float price, float paid);
+  std::optional<std::map<int, int, std::greater<int>>>
+  CalculateChange(int price, int paid);
 };
 
 #endif

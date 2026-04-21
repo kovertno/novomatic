@@ -8,31 +8,25 @@
 Server::Server() {
   Ticket t;
   t.id = 1;
-  t.price = 3.50f;
-  t.name = "Normal";
-  t.status = Availability::AVAILABLE;
-  tickets.push_back(t);
-
-  t.id = 2;
-  t.price = 3.50f;
+  t.price = 350;
   t.name = "Normal";
   t.status = Availability::AVAILABLE;
   tickets.push_back(t);
 
   t.id = 3;
-  t.price = 1.70f;
+  t.price = 170;
   t.name = "Student";
   t.status = Availability::AVAILABLE;
   tickets.push_back(t);
 
   t.id = 4;
-  t.price = 1.70f;
+  t.price = 170;
   t.name = "Senior";
   t.status = Availability::AVAILABLE;
   tickets.push_back(t);
 
   t.id = 5;
-  t.price = 2.00f;
+  t.price = 200;
   t.name = "Reduced";
   t.status = Availability::AVAILABLE;
   tickets.push_back(t);

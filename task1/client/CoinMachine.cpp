@@ -3,40 +3,33 @@
 #include <optional>
 
 CoinMachine::CoinMachine() {
-  coins[5.00f] = 5;
-  coins[2.00f] = 5;
-  coins[1.00f] = 5;
-  coins[0.50f] = 5;
-  coins[0.20f] = 5;
-  coins[0.10f] = 5;
+  coins[500] = 5;
+  coins[200] = 5;
+  coins[100] = 5;
+  coins[50] = 5;
+  coins[20] = 5;
+  coins[10] = 5;
 }
 
-std::optional<std::map<float, int, std::greater<float>>>
-CoinMachine::CalculateChange(float price, float paid) {
-  if (price > paid) {
+std::optional<std::map<int, int, std::greater<int>>>
+CoinMachine::CalculateChange(int price, int paid) {
+  if (price > paid)
     return {};
-  }
-  std::map<float, int, std::greater<float>> out{};
-  float change = paid - price;
 
+  std::map<int, int, std::greater<int>> out{};
+  int change = paid - price;
   auto tempCoins = coins;
+
   for (auto &coin : tempCoins) {
-    if (coin.first > change) {
-      continue;
-    } else if (coin.second == 0) {
-      continue;
-    } else {
-      while (coin.second > 0 && change >= coin.first) {
-        change -= coin.first;
-        --coin.second;
-        ++out[coin.first];
-        if (change < 0.01f) {
-          coins = tempCoins;
-          return out;
-        }
-      }
+    while (coin.second > 0 && change >= coin.first) {
+      change -= coin.first;
+      --coin.second;
+      ++out[coin.first];
+    }
+    if (change == 0) {
+      coins = tempCoins;
+      return out;
     }
   }
-
   return {};
 }

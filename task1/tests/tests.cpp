@@ -22,12 +22,12 @@ TEST(ServerTest, CancelReservation) {
 
 TEST(CoinTest, ExactChange) {
   CoinMachine machine;
-  auto change = machine.CalculateChange(3.00f, 5.00f);
+  auto change = machine.CalculateChange(300, 500);
   EXPECT_TRUE(change.has_value());
 }
 
 TEST(CoinTest, ImpossibleChange) {
   CoinMachine machine;
-  auto change = machine.CalculateChange(2.80f, 5.00f);
+  auto change = machine.CalculateChange(280, 500);
   EXPECT_TRUE(change.has_value() || !change.has_value());
 }

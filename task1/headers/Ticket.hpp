@@ -9,7 +9,7 @@ enum class Availability { AVAILABLE, RESERVED, SOLD };
 
 struct Ticket {
   uint16_t id{};
-  float price{};
+  int price{};
   std::string name{};
   Availability status = Availability::AVAILABLE;
   std::string owner;
