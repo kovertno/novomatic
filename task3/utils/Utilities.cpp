@@ -68,6 +68,51 @@ Message utils::ParseLine(const std::string &line) {
   return message;
 }
 
+QueryFilter utils::ParseInput(const std::string &input) {
+  QueryFilter out{};
+  std::string filterBy{};
+
+  filterBy = ExtractValue(input, "timestampFrom");
+  if (!filterBy.empty())
+    out.timestampFrom = filterBy;
+  filterBy = "";
+
+  filterBy = ExtractValue(input, "timestampTo");
+  if (!filterBy.empty())
+    out.timestampTo = filterBy;
+  filterBy = "";
+
+  filterBy = ExtractValue(input, "logLevel");
+  if (!filterBy.empty())
+    out.logLevel = filterBy;
+  filterBy = "";
+
+  filterBy = ExtractValue(input, "source");
+  if (!filterBy.empty())
+    out.source = filterBy;
+  filterBy = "";
+
+  filterBy = ExtractValue(input, "message");
+  if (!filterBy.empty())
+    out.message = filterBy;
+  filterBy = "";
+
+  return out;
+}
+
+std::string utils::ExtractValue(const std::string &input,
+                                const std::string &key) {
+  size_t start = input.find(key);
+  if (start == std::string::npos) {
+    return "";
+  }
+
+  start += key.size() + 2;
+  size_t end = input.find("\"", start);
+
+  return input.substr(start, end - start);
+}
+
 std::vector<Message> utils::Query(const std::vector<Message> &messages,
                                   const QueryFilter &filter) {
   std::vector<Message> out;

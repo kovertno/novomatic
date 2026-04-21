@@ -7,28 +7,39 @@
 int main() {
   std::vector<Message> messages = utils::ReadFile("../logs.txt");
 
-  std::cout << "Test 1: Source = AuthService\n";
-  QueryFilter f1;
-  f1.source = "AuthService";
-  for (const auto &m : utils::Query(messages, f1))
-    std::cout << m.timestamp << " | " << m.logLevel << " | " << m.source
-              << " | " << m.message << "\n";
+  std::cout << "Welcome to Task3\n";
+  std::cout << "To exit the application type \" exit \"\n";
+  std::cout << "The proper way to run query engine is to filter by:\n";
+  std::cout << "TIMESTAMP FROM(timestampFrom)\n"
+            << "TIMESTAMP TO(timestampTo)\n"
+            << "LOG LEVEL(logLevel)\n"
+            << "SOURCE(source)\n"
+            << "MESSAGE(message)\n";
+  std::cout << "\nExample use: logLevel=\"ERROR\" "
+               "timestampFrom=\"2023-10-25T10:00:00\" "
+               "timestampTo=\"2023-10-25T10:10:00\"\n";
 
-  std::cout << "\nTest 2: ERROR between 10:00 and 10:10\n";
-  QueryFilter f2;
-  f2.logLevel = "ERROR";
-  f2.timestampFrom = "2023-10-25T10:00:00";
-  f2.timestampTo = "2023-10-25T10:10:00";
-  for (const auto &m : utils::Query(messages, f2))
-    std::cout << m.timestamp << " | " << m.logLevel << " | " << m.source
-              << " | " << m.message << "\n";
+  std::string currentInput{};
+  while (true) {
+    std::cout << "\n> ";
+    std::getline(std::cin, currentInput);
 
-  std::cout << "\nTest 3: Message contains Transaction\n";
-  QueryFilter f3;
-  f3.message = "Transaction";
-  for (const auto &m : utils::Query(messages, f3))
-    std::cout << m.timestamp << " | " << m.logLevel << " | " << m.source
-              << " | " << m.message << "\n";
+    if (currentInput == "exit") {
+      break;
+    }
+
+    QueryFilter filter = utils::ParseInput(currentInput);
+    auto results = utils::Query(messages, filter);
+
+    if (results.empty()) {
+      std::cout << "No results found.\n";
+    } else {
+      for (const auto &m : results) {
+        std::cout << "[" << m.timestamp << "] [" << m.logLevel << "] ["
+                  << m.source << "] " << m.message << "\n";
+      }
+    }
+  }
 
   return 0;
 }

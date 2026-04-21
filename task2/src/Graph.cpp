@@ -11,7 +11,6 @@
 using json = nlohmann::json;
 
 void Graph::LoadGraphFromFile(const std::string &filePath) {
-  std::string fileString;
   std::ifstream file;
 
   file.open(filePath);
